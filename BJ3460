@@ -1,0 +1,15 @@
+import sys
+T = int(sys.stdin.readline())
+for i in range(T):
+    N = int(sys.stdin.readline())
+    lst = []
+    while N >= 1:
+        if N % 2 == 1:
+            lst.append(1)
+        else:
+            lst.append(0)
+        N //= 2
+    for j in range(len(lst)):
+        if lst[j] == 1:
+            print(j, end=" ")
+    print()
