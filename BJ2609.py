@@ -8,4 +8,4 @@ while b != 0:
     a,b = b,a
 
 print(a)
-print(A*B//a) #//로 표현하는 것은 float값으로 하지 않기 위함
+print(A*B//a) #//로 표현하는 것은 float값으로 하지 않기 위함.
