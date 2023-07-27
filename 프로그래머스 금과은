@@ -1,0 +1,23 @@
+def solution(A, B, G, S, W, T):
+    left, right = 0, 2 * (A + B) * max(T)
+    while left < right:
+        mid = (left + right) // 2
+        G_max, G_min, S_max, S_min = 0, 0, 0, 0
+        for g, s, w, t in zip(G, S, W, T):
+            max_weight = w * ((1 + mid // t) // 2)
+
+            gold = min(g, max_weight)
+            G_max += gold
+            silver = min(s, max_weight - gold)
+            S_min += silver
+
+            silver = min(s, max_weight)
+            S_max += silver
+            gold = min(g, max_weight - silver)
+            G_min += gold
+
+        if A <= G_max and B <= S_max and (A + B) <= (G_max + S_min):
+            right = mid
+        else:
+            left = mid + 1
+    return right
